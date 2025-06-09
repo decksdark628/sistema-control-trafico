@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class TorreDeControl{
 	private ArrayList<Aeronave> aterrPend;
@@ -38,18 +39,31 @@ public class TorreDeControl{
 				System.out.println("No hay mas vuelos que simular");
 			}
 			else {
+				System.out.println ("\n================ Estado de la pista ================");
+				sleepFixedAmount(500);
+				System.out.print("-  Preparando pista");
+				printLoadingText();
 				pistaLibre = false;
 				if(!aterrPend.isEmpty()){
-					System.out.println( "\n\t* " + aterrPend.get(0) + " esta aterrizando...");
+					System.out.print( "- " + aterrPend.get(0) + " esta aterrizando");
+					printLoadingText();
 					aterrPend.remove(0);
 					ordenarCola(aterrPend);
+					System.out.println("-  Aterrizaje realizado con exito");
 				}
 				else{
-					System.out.println( "\n\t* " + despPend.get(0) + " esta despegando... ");
+					System.out.print( "- " + despPend.get(0) + " esta despegando");
+					printLoadingText();
 					despPend.remove(0);
-					ordenarCola(aterrPend);
+					ordenarCola(despPend);
+					System.out.println("-  Despegue realizado con exito");
 				}
+				sleepFixedAmount(1500);
+				System.out.print("-  Liberando pista");
 				liberarPista();
+				printLoadingText();
+				System.out.println ("====================================================");
+				sleepFixedAmount(500);
 			}
 		}
 	}
@@ -65,11 +79,28 @@ public class TorreDeControl{
 	}
 
 	public boolean hayVuelosPendientes(){
-		if (aterrPend.isEmpty() && aterrPend.isEmpty())
+		if (aterrPend.isEmpty() && despPend.isEmpty())
 			return false;
 		else
 			return true;
-	} 
+	}
+	
+	private void printLoadingText(){
+		for(int i = 0; i<3; i++){
+			sleepFixedAmount(550);
+			System.out.print(".");
+		}
+		System.out.println();
+	}
+
+	private void sleepFixedAmount(int n){
+		try{
+			Thread.sleep(n);
+		}
+		catch (InterruptedException e){
+			e.printStackTrace();
+		}
+	}
 
 	public ArrayList<Aeronave> getAterrPend() {
 		return this.aterrPend;

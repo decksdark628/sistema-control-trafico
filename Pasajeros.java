@@ -10,6 +10,6 @@ public class Pasajeros extends Aeronave{
 	}
 
 	public String toString(){
-		return "  [ Aeronave de pasajeros: " + super.toString() + ", Prioridad: " + PRIORIDAD + " ]  ";
+		return " ( Aeronave de pasajeros: " + super.toString() + ", Prioridad: " + PRIORIDAD + " ) ";
 	}
 }

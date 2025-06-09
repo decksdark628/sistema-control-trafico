@@ -10,6 +10,6 @@ public class Carga extends Aeronave{
 	}
 	
 	public String toString(){
-		return "  [ Aeronave de carga: " + super.toString() + ", Prioridad: " + PRIORIDAD + " ]  ";
+		return " ( Aeronave de carga: " + super.toString() + ", Prioridad: " + PRIORIDAD + " ) ";
 	}
 }

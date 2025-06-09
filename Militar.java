@@ -10,6 +10,6 @@ public class Militar extends Aeronave{
 	}
 
 	public String toString(){
-		return "  [ Aeronave militar: " + super.toString() + " , Prioridad: " + PRIORIDAD + " ]  ";
+		return " ( Aeronave militar: " + super.toString() + " , Prioridad: " + PRIORIDAD + " ) ";
 	}
 }

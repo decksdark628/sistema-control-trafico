@@ -21,6 +21,6 @@ public abstract class Aeronave implements Comparable<Aeronave>{
 	public abstract int getPrioridad();
 
 	public String toString(){
-		return ", ID: " + id;
+		return "ID: " + id;
 	}
 }
